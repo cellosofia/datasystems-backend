@@ -15,7 +15,8 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "reservas")
-public class Reserva {
+public class Reserva{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -33,14 +34,6 @@ public class Reserva {
 	@Temporal(TemporalType.DATE)
 	Date fecha;
 	
-	@Column(name = "hora_desde")
-	@Temporal(TemporalType.TIME)
-    Date horaDesde;
-	
-	@Column(name = "hora_hasta")
-	@Temporal(TemporalType.TIME)
-    Date horaHasta;
-
 	public Long getId() {
 		return id;
 	}
@@ -88,4 +81,12 @@ public class Reserva {
 	public void setHoraHasta(Date horaHasta) {
 		this.horaHasta = horaHasta;
 	}
+
+	@Column(name ="hora_desde")
+	@Temporal(TemporalType.TIME)
+	Date horaDesde;
+	
+	@Column(name = "hora_hasta")
+	@Temporal(TemporalType.TIME)
+	Date horaHasta;
 }

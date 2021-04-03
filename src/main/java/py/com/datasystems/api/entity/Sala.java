@@ -9,10 +9,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "salas")
-public class Sala {
+public class Sala{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name ="id")
 	Long id;
 	
 	@Column(name = "descripcion")
@@ -44,4 +45,5 @@ public class Sala {
 	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
+	
 }

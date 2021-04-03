@@ -5,10 +5,11 @@ import java.util.Optional;
 
 import py.com.datasystems.api.entity.Usuario;
 
-public interface UsuarioService {
-	public List<Usuario> findAllUsuarios();
+public interface UsuarioService{
 	
-	public Optional<Usuario> findUsuarioById(Long id);
+	public List <Usuario> findAllUsuarios();
+	
+	public Optional <Usuario> findUsuarioById(Long id);
 	
 	public Usuario saveUsuario(Usuario usuarioNew);
 	
