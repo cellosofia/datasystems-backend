@@ -6,10 +6,9 @@ import java.util.Optional;
 import py.com.datasystems.api.entity.Sala;
 
 public interface SalaService {
-	
 	public List <Sala> findAllSalas();
 	
-	public Optional <Sala> findSalaById(Long id);
+	public Optional<Sala> findSalaById(Long id);
 
 	public Sala saveSala(Sala salaNew);
 	

@@ -13,9 +13,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "reservas")
-public class Reserva{
+public class Reserva {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +34,18 @@ public class Reserva{
 	
 	@Column(name = "fecha")
 	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone="America/Asuncion")
 	Date fecha;
+	
+	@Column(name ="hora_desde")
+	@Temporal(TemporalType.TIME)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm:ss", timezone="America/Asuncion")
+	Date horaDesde;
+	
+	@Column(name = "hora_hasta")
+	@Temporal(TemporalType.TIME)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm:ss", timezone="America/Asuncion")
+	Date horaHasta;
 	
 	public Long getId() {
 		return id;
@@ -81,12 +94,4 @@ public class Reserva{
 	public void setHoraHasta(Date horaHasta) {
 		this.horaHasta = horaHasta;
 	}
-
-	@Column(name ="hora_desde")
-	@Temporal(TemporalType.TIME)
-	Date horaDesde;
-	
-	@Column(name = "hora_hasta")
-	@Temporal(TemporalType.TIME)
-	Date horaHasta;
 }
