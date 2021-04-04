@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,9 +40,8 @@ public class ReservaControllerImpl implements ReservaController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
 	@Override
-	public ResponseEntity<?> deleteReserva(@PathVariable Long id) {
-		reservaService.deleteReserva(id);
-		return ResponseEntity.ok(null);
+	public String deleteReserva(@PathVariable Long id) {
+		return reservaService.deleteReserva(id);
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.PUT, produces = "application/json")

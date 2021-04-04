@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,9 +41,8 @@ public class SalaControllerImpl implements SalaController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
 	@Override
-	public ResponseEntity<?> deleteSala(@PathVariable Long id) {
-		salaService.deleteSala(id);
-		return ResponseEntity.ok(null);
+	public String deleteSala(@PathVariable Long id) {
+		return salaService.deleteSala(id);
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.PUT, produces = "application/json")
